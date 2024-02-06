@@ -9,5 +9,5 @@ chmod +x jdk-22/bin/java
 sudo mv jdk-22/ /usr/share/
 sudo ln -s /usr/share/jdk-22/bin/java /usr/bin/java
 
-echo 'complete -f -X "!*.java" java' > ~/.bashrc
+echo 'complete -f -X "!*.java" java' >> ~/.bashrc
 source ~/.profile
