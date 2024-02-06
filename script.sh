@@ -5,4 +5,5 @@ mv jdk-22/bin/java jdk-22/bin/java-og
 echo 'java-og --source 22 --enable-preview "$@"' > jdk-22/bin/java
 chmod +x jdk-22/bin/java
 sudo mv jdk-22/ /usr/share/
+sudo ln -s /usr/share/jdk-22/bin/java-og /usr/bin/java-og
 sudo ln -s /usr/share/jdk-22/bin/java /usr/bin/java
