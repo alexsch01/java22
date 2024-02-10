@@ -6,9 +6,9 @@ mv jdk-22/bin/java jdk-22/bin/java-og
 mv jdk-22/bin/javac jdk-22/bin/javac-og
 
 echo 'if [[ $1 == *.java ]]; then
-        /usr/share/jdk-22/bin/java-og --source 22 --enable-preview "${1/.class/}"
+        /usr/share/jdk-22/bin/java-og --source 22 --enable-preview "$@"
 else
-        /usr/share/jdk-22/bin/java-og --enable-preview "${1/.class/}"
+        /usr/share/jdk-22/bin/java-og --enable-preview "$@"
 fi' > jdk-22/bin/java
 
 echo '/usr/share/jdk-22/bin/javac-og --release 22 --enable-preview "$@"' > jdk-22/bin/javac
