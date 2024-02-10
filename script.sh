@@ -20,6 +20,6 @@ sudo mv jdk-22/ /usr/share/
 sudo ln -s /usr/share/jdk-22/bin/java /usr/bin/java
 sudo ln -s /usr/share/jdk-22/bin/javac /usr/bin/javac
 
-echo 'complete -f java' >> ~/.bashrc
-echo 'complete -f javac' >> ~/.bashrc
+echo 'complete -f -X "*.class" java' >> ~/.bashrc
+echo 'complete -f -X "*.class" javac' >> ~/.bashrc
 source ~/.profile
