@@ -3,11 +3,23 @@ tar -xf openjdk-22_linux-x64_bin.tar.gz
 rm openjdk-22_linux-x64_bin.tar.gz
 
 mv jdk-22/bin/java jdk-22/bin/java-og
-echo '/usr/share/jdk-22/bin/java-og --source 22 --enable-preview "$@"' > jdk-22/bin/java
+mv jdk-22/bin/javac jdk-22/bin/javac-og
+
+echo 'if [[ $1 == *.java ]]; then
+        /usr/share/jdk-22/bin/java-og --source 22 --enable-preview "$@"
+else
+        /usr/share/jdk-22/bin/java-og --enable-preview "$@"
+fi' > jdk-22/bin/java
+
+echo '/usr/share/jdk-22/bin/javac-og --release 22 --enable-preview "$@"' > jdk-22/bin/javac
+
 chmod +x jdk-22/bin/java
+chmod +x jdk-22/bin/javac
 
 sudo mv jdk-22/ /usr/share/
 sudo ln -s /usr/share/jdk-22/bin/java /usr/bin/java
+sudo ln -s /usr/share/jdk-22/bin/javac /usr/bin/javac
 
-echo 'complete -f -X "!*.java" java' >> ~/.bashrc
+echo 'complete -f java' >> ~/.bashrc
+echo 'complete -f javac' >> ~/.bashrc
 source ~/.profile
