@@ -4,3 +4,6 @@ rm openjdk-22_linux-x64_bin.tar.gz
 
 sudo mv jdk-22/ /usr/share/
 sudo ln -s /usr/share/jdk-22/bin/* /usr/bin/
+
+echo 'complete -f java' >> ~/.bashrc
+source ~/.profile
